@@ -1,6 +1,6 @@
 {
   "format": "javascript-image-pre1",
-  "arch": "os",
+  "arch": "os.windows.x86_32",
   "load": [
     {
       "node_modules": "/C/Users/Jacob/AppData/Local/.meteor/packages/es5-shim/4.1.14/npm/node_modules",
@@ -108,6 +108,14 @@
       "node_modules": "/C/Users/Jacob/AppData/Local/.meteor/packages/ddp-client/1.2.1/npm/node_modules",
       "sourceMap": "packages/ddp-client.js.map",
       "path": "packages/ddp-client.js"
+    },
+    {
+      "sourceMap": "packages/rate-limit.js.map",
+      "path": "packages/rate-limit.js"
+    },
+    {
+      "sourceMap": "packages/ddp-rate-limiter.js.map",
+      "path": "packages/ddp-rate-limiter.js"
     },
     {
       "node_modules": "/C/Users/Jacob/AppData/Local/.meteor/packages/logging/1.0.8/npm/node_modules",
@@ -222,6 +230,36 @@
       "path": "packages/standard-minifiers.js"
     },
     {
+      "sourceMap": "packages/accounts-ui.js.map",
+      "path": "packages/accounts-ui.js"
+    },
+    {
+      "node_modules": "/C/Users/Jacob/AppData/Local/.meteor/packages/npm-bcrypt/0.7.8_2/npm/node_modules",
+      "sourceMap": "packages/npm-bcrypt.js.map",
+      "path": "packages/npm-bcrypt.js"
+    },
+    {
+      "sourceMap": "packages/accounts-base.js.map",
+      "path": "packages/accounts-base.js"
+    },
+    {
+      "sourceMap": "packages/sha.js.map",
+      "path": "packages/sha.js"
+    },
+    {
+      "sourceMap": "packages/srp.js.map",
+      "path": "packages/srp.js"
+    },
+    {
+      "node_modules": "/C/Users/Jacob/AppData/Local/.meteor/packages/email/1.0.8/npm/node_modules",
+      "sourceMap": "packages/email.js.map",
+      "path": "packages/email.js"
+    },
+    {
+      "sourceMap": "packages/accounts-password.js.map",
+      "path": "packages/accounts-password.js"
+    },
+    {
       "sourceMap": "packages/livedata.js.map",
       "path": "packages/livedata.js"
     },
@@ -251,6 +289,10 @@
     {
       "sourceMap": "app/imessage.js.map",
       "path": "app/imessage.js"
+    },
+    {
+      "sourceMap": "packages/service-configuration.js.map",
+      "path": "packages/service-configuration.js"
     }
   ]
 }

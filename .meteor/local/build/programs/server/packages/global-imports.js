@@ -24,6 +24,8 @@ Symbol = Package['ecmascript-runtime'].Symbol;
 Map = Package['ecmascript-runtime'].Map;
 Set = Package['ecmascript-runtime'].Set;
 Promise = Package.promise.Promise;
+Accounts = Package['accounts-base'].Accounts;
+AccountsServer = Package['accounts-base'].AccountsServer;
 Autoupdate = Package.autoupdate.Autoupdate;
 HTML = Package.htmljs.HTML;
 
