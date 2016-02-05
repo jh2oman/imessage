@@ -3,20 +3,53 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+  <div class="row">
+    <div class="messages">
+      <div class="header">
+        <div class="login-wrapper">
+        {{> loginButtons}}
+      </div>
+        <span class="header-title">Messages({{messages.count}})</span>
+      </div>
+      {{#if currentUser}}
+      <div class="search-wrapper">
+      <input type="text" class="search" placeholder="type to search"/>
+    </div>
+      
+      
+      {{#each messages}}
+      <div class="message-box">
+        <div class="left">
+          <img class="avatar" src="/user.png">
+        </div>
+        <div class="right">
+          <span class="name">{{contactName}}<span class="time">{{formatTime createdAt}}</span></span>
+          <span class="preview">{{message}}</span>
+        </div>
+        <!-- <button class="delete">&times;</button>
+        <button class="read">Read</button> -->
+        {{#if isRead}}
+        &#10003;
+        {{/if}}
+      </div>
+      {{/each}}
+      
+      {{/if}}
+</div>
+<div class="details">
+  <div class="header"></div>
+  <input type="text" id="userSearch" name = "recipient" placeholder="To:"/>
+            {{#each usersList}}
+            {{username}}
+            {{/each}}
+      <form class="new-message">
+            
+            <input type="text" name="text" placeholder="Type to add new message" />
+      </form>
+</div>
+</div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <form class="new-conversation">
-        <input type="text" name="text" placeholder="Type to add new conversation" />
-  </form>
-  <h2>Conversations</h2>
-  <ul>
-  	{{#each conversations}}
-  	<li>{{message}}</li>
-  	{{/each}}
-  </ul>
+<template name="message">
+  
 </template>

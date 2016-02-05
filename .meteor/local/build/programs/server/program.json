@@ -188,10 +188,6 @@
       "path": "packages/webapp.js"
     },
     {
-      "sourceMap": "packages/autopublish.js.map",
-      "path": "packages/autopublish.js"
-    },
-    {
       "sourceMap": "packages/callback-hook.js.map",
       "path": "packages/callback-hook.js"
     },
@@ -207,10 +203,6 @@
     {
       "sourceMap": "packages/binary-heap.js.map",
       "path": "packages/binary-heap.js"
-    },
-    {
-      "sourceMap": "packages/insecure.js.map",
-      "path": "packages/insecure.js"
     },
     {
       "node_modules": "/C/Users/Jacob/AppData/Local/.meteor/packages/mongo/1.1.3/npm/node_modules",
@@ -258,6 +250,10 @@
     {
       "sourceMap": "packages/accounts-password.js.map",
       "path": "packages/accounts-password.js"
+    },
+    {
+      "sourceMap": "packages/less.js.map",
+      "path": "packages/less.js"
     },
     {
       "sourceMap": "packages/livedata.js.map",

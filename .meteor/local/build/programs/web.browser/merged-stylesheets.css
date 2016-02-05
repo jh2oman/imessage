@@ -1,3 +1,7 @@
+/* CSS declarations go here */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,500);
+
 #login-buttons {
   display: inline-block;
   margin-right: 0.2px;
@@ -392,4 +396,105 @@
   line-height: 1;
 }
 
-/* CSS declarations go here */
+body {
+  margin: 0;
+  width: 100%;
+  font-family: "Roboto";
+}
+
+.row {
+  max-width: 900px;
+  height: 100%;
+  min-width: 600px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.messages {
+  width: 40%;
+}
+
+.details {
+  width: 60%;
+  float: left;
+  border-left: 1px solid #bbbbbb;
+  z-index: 10;
+}
+
+.header {
+  height: 50px;
+  width: 100%;
+  border-bottom: 1px solid #bbbbbb;
+  background-color: #f7f7f7;
+  position: relative;
+}
+
+.header-title {
+  font-weight: 700;
+  text-align: center;
+  bottom: 10px;
+  position: absolute;
+  width: 100%;
+}
+
+.login-wrapper {
+  position: absolute;
+}
+
+.message-box {
+  height: 60px;
+  margin-left: 20px;
+  border-bottom: 1px solid #bbbbbb;
+  display: flex;
+  overflow: hidden;
+}
+
+.message-box .left {
+  width: 60px;
+  height: 100%;
+}
+
+.message-box .right {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.message-box .avatar {
+  height: 35px;
+  width: 35px;
+  margin-top: 12.5px;
+  border-radius: 50%;
+}
+
+.message-box .name {
+  font-weight: 700;
+  display: block;
+  margin-right: 10px;
+}
+
+.message-box .time {
+  float: right;
+  font-size: 14px;
+  color: #bbbbbb;
+  font-weight: 400;
+}
+
+.message-box .preview {
+  font-size: 14px;
+  color: #bbbbbb;
+}
+
+.search-wrapper {
+  background-color: #bbbbbb;
+  height: 30px;
+  text-align: center;
+  padding: 10px 7px;
+}
+
+.search {
+  width: 100%;
+  height: 22px;
+  display: block;
+  border-radius: 5px;
+  border: 2px;
+}

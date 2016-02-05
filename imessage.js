@@ -1,32 +1,112 @@
 
-Conversations = new Mongo.Collection("conversations");
+Messages = new Mongo.Collection("messages");
 
 if (Meteor.isClient) {
   //This code runs on the Client
-  Session.setDefault('counter', 0);
+  Meteor.subscribe("messages");
+  Meteor.subscribe("usersList")
+  Accounts.ui.config({
+    passwordSignupFields: "USERNAME_ONLY"
+  });
 
-  Template.hello.helpers({
-    conversations: function(){
-      return Conversations.find({}, {sort:{createdAt:-1}});
+  Template.body.helpers({
+    messages: function(){
+      if(Session.get("searchFilter"))
+        return Messages.find({message:{$regex: new RegExp(Session.get("searchFilter"),"i")}}, {sort:{createdAt:-1}});
+      else
+        return Messages.find({}, {sort:{createdAt:-1}});
+    },
+    usersList: function(){
+      if(Session.get("userFilter"))
+        return Meteor.users.find({username:{$regex: new RegExp(Session.get("userFilter"),"i")}}, {sort:{username:-1}});
+      else
+        return Meteor.users.find({}, {sort:{createdAt:-1}});
+    },
+    formatTime: function(time){
+      var hours = time.getHours().toString();
+      var minutes = time.getMinutes().toString();
+
+      if(hours.length<2)
+        hours = "0"+ hours;
+      if(minutes.length<2)
+        minutes = "0"+ minutes;
+      return hours + ":" + minutes;
     }
   });
 
-  Template.hello.events({
-    "submit .new-conversation": function(event){
+  Template.body.events({
+    "submit .new-message": function(event){
       event.preventDefault();
         var message = event.target.text.value;
-        console.log(message);
-        Conversations.insert({
-          message:message,
-          createdAt: new Date()
-        });
+        var userName = $('#userSearch').val();
+        console.log(userName);
+        Meteor.call("addMessage",message, userName);
         event.target.text.value = "";
+    },
+    "click .delete": function(event){
+      Meteor.call("deleteMessage",this._id);
+    },
+    "click .read": function(event){
+      Meteor.call("readMessage",this._id);
+    },
+    "keyup .search": function(event){
+      Session.set("searchFilter", $('.search').val());
+    },
+    "keyup #userSearch": function(event){
+      Session.set("userFilter", $('#userSearch').val());
     }
   });
 }
 
+Meteor.methods({
+    addMessage: function(message, userName){
+      if(!Meteor.userId())
+        throw new Meteor.Error("not-authorized");
+      var reciever = Meteor.users.findOne({username:  userName});
+      console.log(reciever);
+      if(!reciever)
+        throw new Meteor.Error("recipient-not-found.");
+      Messages.insert({
+        message:message,
+          createdAt: new Date(),
+          owner: Meteor.userId(),
+          ownerName: Meteor.user().username,
+          contactName:userName
+      });
+      Messages.insert({
+        message:message,
+          createdAt: new Date(),
+          owner: reciever._id,
+          ownerName: userName,
+          contactName: Meteor.user().username
+      });
+    },
+    deleteMessage: function(id){
+      var message = Messages.findOne(id);
+      if(message.owner !==Meteor.userId())
+        throw new Meteor.Error("not authorized");
+      Messages.remove(id);
+    },
+    readMessage: function(id){
+      var message = Messages.findOne(id);
+      if(message.owner !==Meteor.userId())
+        throw new Meteor.Error("not authorized");
+      Messages.update(id, {
+        $set:{isRead: true}
+      });
+    }
+  });
+
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
+  Meteor.publish("messages", function(){
+    return Messages.find({
+      $or: [
+        {owner:this.userId}
+      ]
+    });
+  });
+
+  Meteor.publish("usersList", function(){
+    return Meteor.users.find({}, {fields:{username:1}});
   });
 }
