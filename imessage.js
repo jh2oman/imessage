@@ -36,10 +36,10 @@ if (Meteor.isClient) {
         users= Meteor.users.find({username:{$regex: new RegExp(Session.get("userFilter"),"i")}}, {sort:{username:-1}});
       else
         users = Meteor.users.find({}, {sort:{createdAt:-1}});
-      users.forEach(function(user){
-        if(user.username ===Meteor.user().username)
-          users.splice(index,1);
-      })
+      // users.forEach(function(user){
+      //   if(user.username ===Meteor.user().username)
+      //     users.splice(index,1);
+      // })
       return users;
     },
     //Reformats time for display
@@ -85,6 +85,8 @@ if (Meteor.isClient) {
       event.preventDefault();
         var message = event.target.text.value;
         var userName = $('#userSearch').val();
+        if(!userName)
+          throw new Meteor.Error("no user specified");
         console.log(userName);
         Meteor.call("addMessage",message, userName);
         event.target.text.value = "";
@@ -151,7 +153,7 @@ Meteor.methods({
           contactName:userName,
           sent: true
       });
-      if(username !==Meteor.user().username)
+      if(userName !==Meteor.user().username)
       {
         Messages.insert({
         message:message,

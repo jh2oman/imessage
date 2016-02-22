@@ -76,14 +76,14 @@ Template.body.addContent((function() {
         return [ "\n            ", HTML.DIV("\n            ", Blaze.View("lookup:username", function() {
           return Spacebars.mustache(view.lookup("username"));
         }), "\n            "), "\n            " ];
-      }), "\n            ", HTML.FORM({
-        "class": "new-message"
-      }, "\n            \n            ", HTML.INPUT({
-        type: "text",
-        name: "text",
-        placeholder: "iMessage"
-      }), "\n  "), "\n  " ];
-    }), "\n      \n  " ];
+      }), "\n\n  " ];
+    }), "\n  ", HTML.FORM({
+      "class": "new-message"
+    }, "\n            \n            ", HTML.INPUT({
+      type: "text",
+      name: "text",
+      placeholder: "iMessage"
+    }), "\n  "), "\n      \n  " ];
   }, function() {
     return [ "\n  ", Blaze.Each(function() {
       return Spacebars.dataMustache(view.lookup("texts"), view.lookup("contact"));
