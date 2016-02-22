@@ -3,6 +3,7 @@
 //Colors
 @main-border-gray: #bbb;
 @header-gray: rgb(247,247,247);
+@blue: #1D62F0;
 
 body{
 	margin:0;
@@ -43,11 +44,12 @@ body{
 #new{
 	font-weight: 700;
 	text-align: right;
-	bottom:10px;
+	bottom:7px;
 	position:absolute;
 	right:10px;
-	width:100%;
+	font-size: 20px;
 	cursor:pointer;
+	color: @blue;
 }
 .login-wrapper{
 	position:absolute;
@@ -117,7 +119,7 @@ body{
 .sent{
 	text-align: right;
 	.text{
-		background-color: #1D62F0;
+		background-color:@blue;
 		color:#FFF;
 	}
 	

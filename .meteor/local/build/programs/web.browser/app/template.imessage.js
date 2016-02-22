@@ -11,9 +11,9 @@ Template.body.addContent((function() {
     "class": "login-wrapper"
   }, "\n        ", Spacebars.include(view.lookupTemplate("loginButtons")), "\n      "), "\n        ", HTML.SPAN({
     "class": "header-title"
-  }, "Messages(", Blaze.View("lookup:messages.count", function() {
-    return Spacebars.mustache(Spacebars.dot(view.lookup("messages"), "count"));
-  }), ")"), "\n        ", HTML.Raw('<span id="new">New</span>'), "\n      "), "\n      ", Blaze.If(function() {
+  }, "Messages(", Blaze.View("lookup:messages.length", function() {
+    return Spacebars.mustache(Spacebars.dot(view.lookup("messages"), "length"));
+  }), ")"), "\n        ", HTML.Raw('<span id="new"><i class="fa fa-pencil-square-o"></i></span>'), "\n      "), "\n      ", Blaze.If(function() {
     return Spacebars.call(view.lookup("currentUser"));
   }, function() {
     return [ "\n      ", HTML.Comment(' <div class="search-wrapper">\n      <input type="text" class="search" placeholder="type to search"/>\n    </div> '), "\n      \n      \n      ", Blaze.Each(function() {
@@ -76,14 +76,14 @@ Template.body.addContent((function() {
         return [ "\n            ", HTML.DIV("\n            ", Blaze.View("lookup:username", function() {
           return Spacebars.mustache(view.lookup("username"));
         }), "\n            "), "\n            " ];
-      }), "\n  " ];
-    }), "\n      ", HTML.FORM({
-      "class": "new-message"
-    }, "\n            \n            ", HTML.INPUT({
-      type: "text",
-      name: "text",
-      placeholder: "iMessage"
-    }), "\n  "), "\n  " ];
+      }), "\n            ", HTML.FORM({
+        "class": "new-message"
+      }, "\n            \n            ", HTML.INPUT({
+        type: "text",
+        name: "text",
+        placeholder: "iMessage"
+      }), "\n  "), "\n  " ];
+    }), "\n      \n  " ];
   }, function() {
     return [ "\n  ", Blaze.Each(function() {
       return Spacebars.dataMustache(view.lookup("texts"), view.lookup("contact"));

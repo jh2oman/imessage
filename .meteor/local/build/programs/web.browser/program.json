@@ -585,6 +585,17 @@
       "hash": "7a61fa32f38b551bb67c465c16c8eaa58a52b50a"
     },
     {
+      "path": "packages/fortawesome_fontawesome.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/fortawesome_fontawesome.js?833b6651cdbeea7e97437db169dc5f6eb7c9b795",
+      "sourceMap": "packages/fortawesome_fontawesome.js.map",
+      "sourceMapUrl": "/packages/833b6651cdbeea7e97437db169dc5f6eb7c9b795.map",
+      "size": 783,
+      "hash": "833b6651cdbeea7e97437db169dc5f6eb7c9b795"
+    },
+    {
       "path": "packages/webapp.js",
       "where": "client",
       "type": "js",
@@ -664,33 +675,87 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/template.imessage.js?c37640cf27bdb9ec9300dcf48c928c8e5d25b7e8",
+      "url": "/app/template.imessage.js?4e377d0156d20cff0e582e0bb18571686c654f02",
       "sourceMap": "app/template.imessage.js.map",
-      "sourceMapUrl": "/app/c37640cf27bdb9ec9300dcf48c928c8e5d25b7e8.map",
-      "size": 4520,
-      "hash": "c37640cf27bdb9ec9300dcf48c928c8e5d25b7e8"
+      "sourceMapUrl": "/app/4e377d0156d20cff0e582e0bb18571686c654f02.map",
+      "size": 4582,
+      "hash": "4e377d0156d20cff0e582e0bb18571686c654f02"
     },
     {
       "path": "app/imessage.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/imessage.js?07517fa1959e4264cbb46c2d46661c6fa89b248a",
+      "url": "/app/imessage.js?5cca988e2513b1e508193f63c78b36f6c5c99686",
       "sourceMap": "app/imessage.js.map",
-      "sourceMapUrl": "/app/07517fa1959e4264cbb46c2d46661c6fa89b248a.map",
-      "size": 12216,
-      "hash": "07517fa1959e4264cbb46c2d46661c6fa89b248a"
+      "sourceMapUrl": "/app/5cca988e2513b1e508193f63c78b36f6c5c99686.map",
+      "size": 14371,
+      "hash": "5cca988e2513b1e508193f63c78b36f6c5c99686"
     },
     {
       "path": "merged-stylesheets.css",
       "where": "client",
       "type": "css",
       "cacheable": true,
-      "url": "/merged-stylesheets.css?227e658f88d364eef8b618142f718dbd7866bc90",
+      "url": "/merged-stylesheets.css?ce528c1b5062d635dd5a1bf5bd5fc0567ff0d0c2",
       "sourceMap": "merged-stylesheets.css.map",
-      "sourceMapUrl": "/227e658f88d364eef8b618142f718dbd7866bc90.map",
-      "size": 10688,
-      "hash": "227e658f88d364eef8b618142f718dbd7866bc90"
+      "sourceMapUrl": "/ce528c1b5062d635dd5a1bf5bd5fc0567ff0d0c2.map",
+      "size": 44791,
+      "hash": "ce528c1b5062d635dd5a1bf5bd5fc0567ff0d0c2"
+    },
+    {
+      "path": "packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.eot",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.eot",
+      "size": 70807,
+      "hash": "986eed8dca049714e43eeebcb3932741a4bec76d"
+    },
+    {
+      "path": "packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.svg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.svg",
+      "size": 365616,
+      "hash": "b06b5c8f67fd632cdc62a33b62ae4f74194131b3"
+    },
+    {
+      "path": "packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.ttf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.ttf",
+      "size": 142072,
+      "hash": "6484f1af6b485d5096b71b344e67f4164c33dd1f"
+    },
+    {
+      "path": "packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.woff",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.woff",
+      "size": 83588,
+      "hash": "4a313eb93b959cc4154c684b915b0a31ddb68d84"
+    },
+    {
+      "path": "packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.woff2",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.woff2",
+      "size": 66624,
+      "hash": "638c652d623280a58144f93e7b552c66d1667a11"
+    },
+    {
+      "path": "packages/fortawesome_fontawesome/upstream/fonts/FontAwesome.otf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/fortawesome_fontawesome/upstream/fonts/FontAwesome.otf",
+      "size": 109688,
+      "hash": "42c179eef588854b5ec151bcf6a3f58aa8b79b11"
     },
     {
       "path": "app/user.png",

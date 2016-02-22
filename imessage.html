@@ -9,8 +9,8 @@
         <div class="login-wrapper">
         {{> loginButtons}}
       </div>
-        <span class="header-title">Messages({{messages.count}})</span>
-        <span id="new">New</span>
+        <span class="header-title">Messages({{messages.length}})</span>
+        <span id="new"><i class="fa fa-pencil-square-o"></i></span>
       </div>
       {{#if currentUser}}
       <!-- <div class="search-wrapper">
@@ -50,11 +50,12 @@
             {{username}}
             </div>
             {{/each}}
-  {{/if}}
-      <form class="new-message">
+            <form class="new-message">
             
             <input type="text" name="text" placeholder="iMessage" />
   </form>
+  {{/if}}
+      
   {{else}}
   {{#each texts contact}}
   <div class="text-wrapper {{sentOrRecieved}}">

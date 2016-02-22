@@ -256,6 +256,10 @@
       "path": "packages/less.js"
     },
     {
+      "sourceMap": "packages/fortawesome_fontawesome.js.map",
+      "path": "packages/fortawesome_fontawesome.js"
+    },
+    {
       "sourceMap": "packages/livedata.js.map",
       "path": "packages/livedata.js"
     },
