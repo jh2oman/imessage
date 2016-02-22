@@ -13,16 +13,10 @@ Template.body.addContent((function() {
     "class": "header-title"
   }, "Messages(", Blaze.View("lookup:messages.count", function() {
     return Spacebars.mustache(Spacebars.dot(view.lookup("messages"), "count"));
-  }), ")"), "\n      "), "\n      ", Blaze.If(function() {
+  }), ")"), "\n        ", HTML.Raw('<span id="new">New</span>'), "\n      "), "\n      ", Blaze.If(function() {
     return Spacebars.call(view.lookup("currentUser"));
   }, function() {
-    return [ "\n      ", HTML.DIV({
-      "class": "search-wrapper"
-    }, "\n      ", HTML.INPUT({
-      type: "text",
-      "class": "search",
-      placeholder: "type to search"
-    }), "\n    "), "\n      \n      \n      ", Blaze.Each(function() {
+    return [ "\n      ", HTML.Comment(' <div class="search-wrapper">\n      <input type="text" class="search" placeholder="type to search"/>\n    </div> '), "\n      \n      \n      ", Blaze.Each(function() {
       return Spacebars.call(view.lookup("messages"));
     }, function() {
       return [ "\n      ", HTML.DIV({
@@ -57,18 +51,65 @@ Template.body.addContent((function() {
     }), "\n      \n      " ];
   }), "\n"), "\n", HTML.DIV({
     "class": "details"
-  }, "\n  ", HTML.Raw('<div class="header"></div>'), "\n  ", HTML.Raw('<input type="text" id="userSearch" name="recipient" placeholder="To:">'), "\n            ", Blaze.Each(function() {
-    return Spacebars.call(view.lookup("usersList"));
+  }, "\n  ", HTML.DIV({
+    "class": "header"
+  }, "\n    ", HTML.SPAN({
+    "class": "header-title"
+  }, Blaze.View("lookup:contact", function() {
+    return Spacebars.mustache(view.lookup("contact"));
+  })), "\n  "), "\n  ", Blaze.If(function() {
+    return Spacebars.call(view.lookup("newMessage"));
   }, function() {
-    return [ "\n            ", Blaze.View("lookup:username", function() {
-      return Spacebars.mustache(view.lookup("username"));
-    }), "\n            " ];
-  }), "\n      ", HTML.Raw('<form class="new-message">\n            \n            <input type="text" name="text" placeholder="Type to add new message">\n      </form>'), "\n"), "\n");
+    return [ "\n  ", HTML.INPUT({
+      type: "text",
+      id: "userSearch",
+      name: "recipient",
+      placeholder: "To:"
+    }), "\n  ", Blaze.If(function() {
+      return Spacebars.call(view.lookup("correctUser"));
+    }, function() {
+      return "\n  ";
+    }, function() {
+      return [ "\n            ", Blaze.Each(function() {
+        return Spacebars.call(view.lookup("usersList"));
+      }, function() {
+        return [ "\n            ", HTML.DIV("\n            ", Blaze.View("lookup:username", function() {
+          return Spacebars.mustache(view.lookup("username"));
+        }), "\n            "), "\n            " ];
+      }), "\n  " ];
+    }), "\n      ", HTML.FORM({
+      "class": "new-message"
+    }, "\n            \n            ", HTML.INPUT({
+      type: "text",
+      name: "text",
+      placeholder: "iMessage"
+    }), "\n  "), "\n  " ];
+  }, function() {
+    return [ "\n  ", Blaze.Each(function() {
+      return Spacebars.dataMustache(view.lookup("texts"), view.lookup("contact"));
+    }, function() {
+      return [ "\n  ", HTML.DIV({
+        "class": function() {
+          return [ "text-wrapper ", Spacebars.mustache(view.lookup("sentOrRecieved")) ];
+        }
+      }, "\n  ", HTML.SPAN({
+        "class": "text "
+      }, "\n    ", Blaze.View("lookup:message", function() {
+        return Spacebars.mustache(view.lookup("message"));
+      }), "\n  "), "\n"), "\n  " ];
+    }), "\n  ", HTML.FORM({
+      "class": "new-text"
+    }, "\n            \n            ", HTML.INPUT({
+      type: "text",
+      name: "text",
+      placeholder: "iMessage"
+    }), "\n  "), "\n\n  " ];
+  }), "\n"), "\n");
 }));
 Meteor.startup(Template.body.renderToDocument);
 
-Template.__checkName("message");
-Template["message"] = new Template("Template.message", (function() {
+Template.__checkName("details");
+Template["details"] = new Template("Template.details", (function() {
   var view = this;
   return "";
 }));

@@ -40,6 +40,15 @@ body{
 	position:absolute;
 	width:100%;
 }
+#new{
+	font-weight: 700;
+	text-align: right;
+	bottom:10px;
+	position:absolute;
+	right:10px;
+	width:100%;
+	cursor:pointer;
+}
 .login-wrapper{
 	position:absolute;
 }
@@ -80,6 +89,9 @@ body{
 	}
 
 }
+.selected{
+	background-color: #ddd;
+}
 
 .search-wrapper{
 	background-color:@main-border-gray;
@@ -87,6 +99,34 @@ body{
 	text-align: center;
 	padding: 10px 7px;
 
+}
+.text{
+	background-color:#ddd;
+	display:inline-block;
+	padding:5px;
+	border-radius: 15px;
+	margin-bottom:5px;
+	margin-left:10px;
+	margin-right:10px;
+
+}
+.text-wrapper{
+	width:100%;
+	min-height: 34px;
+}
+.sent{
+	text-align: right;
+	.text{
+		background-color: #1D62F0;
+		color:#FFF;
+	}
+	
+}
+.new-text input{
+	width:100%;
+}
+.new-message input{
+	width:100%;
 }
 .search{
 	width:100%;

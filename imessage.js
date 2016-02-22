@@ -11,10 +11,21 @@ if (Meteor.isClient) {
 
   Template.body.helpers({
     messages: function(){
-      if(Session.get("searchFilter"))
-        return Messages.find({message:{$regex: new RegExp(Session.get("searchFilter"),"i")}}, {sort:{createdAt:-1}});
-      else
-        return Messages.find({}, {sort:{createdAt:-1}});
+      var messages = [];
+      var users = Meteor.users.find({}, {sort:{createdAt:-1}});
+      users.forEach(function(user){
+        //if(Session.get("searchFilter"))
+        //messages.push(Messages.findOne({message:{$regex: new RegExp(Session.get("searchFilter"),"i")}, contactName: :{$regex: new RegExp(user,"i")} }, {sort:{createdAt:-1}}));
+        //else
+        var single = Messages.findOne({contactName :user.username}, {sort:{createdAt:-1}});
+        if(single)
+          messages.push(single);
+      })
+      return messages
+      //console.log(messages);
+    },
+    texts:function(contact){
+      return Messages.find({contactName: contact}, {sort:{createdAt:1}});
     },
     usersList: function(){
       if(Session.get("userFilter"))
@@ -31,7 +42,26 @@ if (Meteor.isClient) {
       if(minutes.length<2)
         minutes = "0"+ minutes;
       return hours + ":" + minutes;
+    },
+    contact: function()
+    {
+      return Session.get("contact");
+    },
+    newMessage: function(){
+      return Session.get("newMessage");
+    },
+    sentOrRecieved:function(){
+      if(this.sent)
+        return "sent";
+      else
+        return "recieved";
+    },
+    correctUser:function(){
+      if(Meteor.users.findOne({username:  Session.get("userFilter")}))
+        return true;
+      return false;
     }
+
   });
 
   Template.body.events({
@@ -42,6 +72,18 @@ if (Meteor.isClient) {
         console.log(userName);
         Meteor.call("addMessage",message, userName);
         event.target.text.value = "";
+        Session.set("newMessage", false);
+        Session.set("contact", userName);
+
+    },
+    "submit .new-text": function(event){
+      event.preventDefault();
+        var message = event.target.text.value;
+        var userName = Session.get("contact");
+        console.log(userName);
+        Meteor.call("addMessage",message, userName);
+        event.target.text.value = "";
+        
     },
     "click .delete": function(event){
       Meteor.call("deleteMessage",this._id);
@@ -54,6 +96,15 @@ if (Meteor.isClient) {
     },
     "keyup #userSearch": function(event){
       Session.set("userFilter", $('#userSearch').val());
+    },
+    "click .message-box": function(event){
+      Session.set("newMessage", false);
+      Session.set("contact", this.contactName);
+      console.log(this.contactName);
+      $(this).addClass("selected");
+    },
+    "click #new": function(event){
+      Session.set("newMessage", true);
     }
   });
 }
@@ -66,20 +117,27 @@ Meteor.methods({
       console.log(reciever);
       if(!reciever)
         throw new Meteor.Error("recipient-not-found.");
+
       Messages.insert({
         message:message,
           createdAt: new Date(),
           owner: Meteor.userId(),
           ownerName: Meteor.user().username,
-          contactName:userName
+          contactName:userName,
+          sent: true
       });
-      Messages.insert({
+      if(username !==Meteor.user().username)
+      {
+        Messages.insert({
         message:message,
           createdAt: new Date(),
           owner: reciever._id,
           ownerName: userName,
-          contactName: Meteor.user().username
+          contactName: Meteor.user().username,
+          sent:false
       });
+      }
+      
     },
     deleteMessage: function(id){
       var message = Messages.findOne(id);

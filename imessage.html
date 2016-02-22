@@ -10,11 +10,12 @@
         {{> loginButtons}}
       </div>
         <span class="header-title">Messages({{messages.count}})</span>
+        <span id="new">New</span>
       </div>
       {{#if currentUser}}
-      <div class="search-wrapper">
+      <!-- <div class="search-wrapper">
       <input type="text" class="search" placeholder="type to search"/>
-    </div>
+    </div> -->
       
       
       {{#each messages}}
@@ -37,19 +38,42 @@
       {{/if}}
 </div>
 <div class="details">
-  <div class="header"></div>
+  <div class="header">
+    <span class="header-title">{{contact}}</span>
+  </div>
+  {{#if newMessage}}
   <input type="text" id="userSearch" name = "recipient" placeholder="To:"/>
+  {{#if correctUser}}
+  {{else}}
             {{#each usersList}}
+            <div>
             {{username}}
+            </div>
             {{/each}}
+  {{/if}}
       <form class="new-message">
             
-            <input type="text" name="text" placeholder="Type to add new message" />
-      </form>
+            <input type="text" name="text" placeholder="iMessage" />
+  </form>
+  {{else}}
+  {{#each texts contact}}
+  <div class="text-wrapper {{sentOrRecieved}}">
+  <span class="text ">
+    {{message}}
+  </span>
+</div>
+  {{/each}}
+  <form class="new-text">
+            
+            <input type="text" name="text" placeholder="iMessage" />
+  </form>
+
+  {{/if}}
 </div>
 </div>
 </body>
 
-<template name="message">
+<template name="details">
   
+
 </template>

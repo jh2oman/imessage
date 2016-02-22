@@ -664,33 +664,33 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/template.imessage.js?c89e80eca43db0b92ca9ddcaa4ff8ad0331e6c2e",
+      "url": "/app/template.imessage.js?c37640cf27bdb9ec9300dcf48c928c8e5d25b7e8",
       "sourceMap": "app/template.imessage.js.map",
-      "sourceMapUrl": "/app/c89e80eca43db0b92ca9ddcaa4ff8ad0331e6c2e.map",
-      "size": 3159,
-      "hash": "c89e80eca43db0b92ca9ddcaa4ff8ad0331e6c2e"
+      "sourceMapUrl": "/app/c37640cf27bdb9ec9300dcf48c928c8e5d25b7e8.map",
+      "size": 4520,
+      "hash": "c37640cf27bdb9ec9300dcf48c928c8e5d25b7e8"
     },
     {
       "path": "app/imessage.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/imessage.js?b92531fd216075fb5e7d6c54006e3f07357e2af8",
+      "url": "/app/imessage.js?07517fa1959e4264cbb46c2d46661c6fa89b248a",
       "sourceMap": "app/imessage.js.map",
-      "sourceMapUrl": "/app/b92531fd216075fb5e7d6c54006e3f07357e2af8.map",
-      "size": 8304,
-      "hash": "b92531fd216075fb5e7d6c54006e3f07357e2af8"
+      "sourceMapUrl": "/app/07517fa1959e4264cbb46c2d46661c6fa89b248a.map",
+      "size": 12216,
+      "hash": "07517fa1959e4264cbb46c2d46661c6fa89b248a"
     },
     {
       "path": "merged-stylesheets.css",
       "where": "client",
       "type": "css",
       "cacheable": true,
-      "url": "/merged-stylesheets.css?56accfbba3bbe2dcf1b9ec1b4dcacc2437e6bb1c",
+      "url": "/merged-stylesheets.css?227e658f88d364eef8b618142f718dbd7866bc90",
       "sourceMap": "merged-stylesheets.css.map",
-      "sourceMapUrl": "/56accfbba3bbe2dcf1b9ec1b4dcacc2437e6bb1c.map",
-      "size": 10121,
-      "hash": "56accfbba3bbe2dcf1b9ec1b4dcacc2437e6bb1c"
+      "sourceMapUrl": "/227e658f88d364eef8b618142f718dbd7866bc90.map",
+      "size": 10688,
+      "hash": "227e658f88d364eef8b618142f718dbd7866bc90"
     },
     {
       "path": "app/user.png",
